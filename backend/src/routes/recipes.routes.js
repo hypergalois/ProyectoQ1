@@ -2,14 +2,14 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/recipes", getRecipes)
+router.get("/recipes")
 
-router.get("/recipes/:id", getRecipeById)
+router.get("/recipes/:id")
 
-router.post("/recipes", createRecipe)
+router.post("/recipes")
 
-router.put("/recipes/:id", updateRecipeById)
+router.put("/recipes/:id")
 
-router.delete("/recipes/:id", deleteRecipeById)
+router.delete("/recipes/:id")
 
 export default router;
