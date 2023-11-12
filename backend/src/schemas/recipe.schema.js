@@ -10,7 +10,7 @@ export const createRecipeSchema = z.object({
     date: z.string().datetime().optional()
 })
 
-export const updateTaskSchema = z.object({
+export const updateRecipeSchema = z.object({
     title: z.string().optional(),
     description: z.string().optional(),
     date: z.string().datetime().optional()

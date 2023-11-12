@@ -1,5 +1,10 @@
 import Recipe from "../models/recipe.model.js"
 
+// {
+//     "title": "Macarrones bolonesa",
+//     "description": "Hacer a fuego lento"
+// }
+
 export const getRecipes = async (req, res) => {
     const recipes = await Recipe.find({
         user: req.user.id
@@ -45,7 +50,7 @@ export const updateRecipe = async (req, res) => {
 }
 
 export const deleteRecipe = async (req, res) => {
-    const recipe = await Recipe.deleteOne(req.params.id)
+    const recipe = await Recipe.findByIdAndDelete(req.params.id)
     if (!recipe) {
         return res.status(404).json({ message: "No se ha encontrado la receta" })
     }

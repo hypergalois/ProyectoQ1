@@ -4,6 +4,11 @@ import jwt from 'jsonwebtoken';
 import { TOKEN_SECRET } from '../config.js';
 import { createAccessToken } from '../libs/jwt.js';
 
+// {
+//     "email": "test1234@gmail.com",
+//     "password": "test1234",
+//     "username": "test1234"
+//   }
 export const register = async (req, res) => {
     console.log(req.body)
     const { email, username, password } = req.body
@@ -12,7 +17,7 @@ export const register = async (req, res) => {
         const foundUser = await User.findOne({ email })
         if (foundUser) return res.status(400).json({ message: "The email is already registered" })
 
-        const passwordHashed = await bcrypt.hash(password, 18)
+        const passwordHashed = await bcrypt.hash(password, 10)
 
         const newUser = User({
             email,
@@ -22,7 +27,7 @@ export const register = async (req, res) => {
     
         const savedUser = await newUser.save()
 
-        const token = createAccessToken({ id: savedUser._id })
+        const token = await createAccessToken({ id: savedUser._id })
 
         res.cookie("token", token, {
             sameSite: "none",
