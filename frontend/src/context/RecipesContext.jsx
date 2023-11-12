@@ -38,7 +38,7 @@ export const RecipesProvider = ({ children }) => {
         try {
             const res = await deleteRecipeRequest(id);
             if (res.status === 204) {
-                setRecipes(recipes.filter(recipe => recipe.id !== id))
+                setRecipes(recipes.filter(recipe => recipe._id !== id))
             }
         } catch (err) {
             console.log(err)

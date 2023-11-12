@@ -43,23 +43,26 @@ function RecipeFormPage() {
     })
 
     return (
-        <div>
-            <div>
+        <div className="flex items-center justify-center h-[calc(100vh-100px)]">
+            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
                 <form onSubmit={onSubmit}>
 
                     <label htmlFor="title">title</label>
                     <input type="text" placeholder="Title" 
-                        {...register("title")} autoFocus/>
+                        {...register("title")} autoFocus
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"/>
 
                     <label htmlFor="description">description</label>
                     <textarea rows="3" placeholder="Description"
-                        {...register("description")}></textarea>
+                        {...register("description")}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"></textarea>
 
                     {/* OJO ESTO NECESITA TENER UN DEFAULT DA ERROR AL UPDATE */}
                     <label htmlFor="date">Date</label>
-                    <input type="date" {...register("date")}/>
+                    <input type="date" {...register("date")}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"/>
 
-                    <button>Save</button>
+                    <button className="bg-indigo-500 px-3 py-2 rounded-md">Save</button>
 
                 </form>
             </div>

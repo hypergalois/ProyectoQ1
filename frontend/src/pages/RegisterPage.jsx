@@ -20,18 +20,18 @@ function RegisterPage() {
     })
 
     return (
-        <div>
-            <div>
+        <div className='flex items-center justify-center h-[calc(100vh-100px)]'>
+            <div className="bg-zinc-800 max-w-md p-10 rounded-md">
                 {
                     registerErrors.map((error, i) => {
                         return (
-                            <div key={i}>
+                            <div key={i} className="bg-red-500 text-white text-sm p-2 rounded-md my-2">
                                 <p>{error}</p>
                             </div>
                         )
                     })
                 }
-                <h1>Register</h1>
+                <h1 className="text-2xl font-bold my-2">Register</h1>
                 <form onSubmit={onSubmit}>
                     <input type="text" {
                         ...register("username", {
@@ -40,10 +40,11 @@ function RegisterPage() {
                             maxLength: 20
                         })
                     }
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
                         placeholder="Username" />
                     {
                         errors.username && (
-                            <p>Username is required</p>
+                            <p className="text-red-500 text-sm">Username is required</p>
                         )
                     }
 
@@ -53,10 +54,11 @@ function RegisterPage() {
                             pattern: /^\S+@\S+$/i,
                         })
                     }
+                        className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
                         placeholder='Email' />
                     {
                         errors.email && (
-                            <p>Email is required</p>
+                            <p className="text-red-500 text-sm">Email is required</p>
                         )
                     }
 
@@ -67,21 +69,23 @@ function RegisterPage() {
                             maxLength: 20
                         })
                     }
+                        className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
                         placeholder='Password' />
                     {
                         errors.password && (
-                            <p>Password is required</p>
+                            <p className="text-red-500 text-sm">Password is required</p>
                         )
                     }
 
-                    <button type="submit">
+                    <button type="submit"
+                        className='bg-sky-500 text-white px-4 py-2 rounded-md my-2'>
                         Register
                     </button>
 
                 </form>
 
-                <p>
-                    Already have an account? <Link to="/login">Login</Link>
+                <p className='flex gap-x-2 justify-between'>
+                    Already have an account? <Link to="/login" className='text-sky-500'>Login</Link>
                 </p>
 
             </div>
