@@ -13,9 +13,26 @@ import ProfilePage from './pages/ProfilePage'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World!</h1>
-    </div>
+    <AuthProvider>
+      <TaskProvider>
+        <Router>
+          <main>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="/recipes" element={<RecipesPage />} />
+                <Route path="/recipes/new" element={<RecipeFormPage />} />
+                <Route path="/recipes/:id" element={<RecipeFormPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+              </Route>
+            </Routes>
+          </main>
+        </Router>
+      </TaskProvider>
+    </AuthProvider>
   );
 }
 
