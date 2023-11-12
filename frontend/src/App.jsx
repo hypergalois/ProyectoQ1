@@ -11,10 +11,12 @@ import RecipesPage from './pages/RecipesPage'
 import RecipeFormPage from './pages/RecipeFormPage'
 import ProfilePage from './pages/ProfilePage'
 
+import ProtectedRoute from "./ProtectedRoute.jsx";
+
 function App() {
   return (
     <AuthProvider>
-      <TaskProvider>
+      <RecipesProvider>
         <Router>
           <main>
             <Navbar />
@@ -31,7 +33,7 @@ function App() {
             </Routes>
           </main>
         </Router>
-      </TaskProvider>
+      </RecipesProvider>
     </AuthProvider>
   );
 }
