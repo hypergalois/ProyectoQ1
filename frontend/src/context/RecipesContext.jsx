@@ -36,7 +36,7 @@ export const RecipesProvider = ({ children }) => {
 
     const deleteRecipe = async (id) => {
         try {
-            await deleteRecipeRequest(id);
+            const res = await deleteRecipeRequest(id);
             if (res.status === 204) {
                 setRecipes(recipes.filter(recipe => recipe.id !== id))
             }

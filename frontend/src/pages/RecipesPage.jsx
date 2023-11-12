@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useTasks } from "../context/TasksContext";
+import { useRecipes } from "../context/RecipesContext";
 import RecipeCard from '../components/RecipeCard';
 
 function RecipesPage() {
     
-    const { getRecipes, recipes } = useTasks();
+    const { getRecipes, recipes } = useRecipes();
 
     useEffect(() => {
         getRecipes()
@@ -21,7 +21,7 @@ function RecipesPage() {
         <div>
             {
                 recipes.map((recipe) => (
-                    <RecipeCard recipe={recipe} key={recipe.id} />
+                    <RecipeCard recipe={recipe} key={recipe._id} />
                 ))
             }
         </div>

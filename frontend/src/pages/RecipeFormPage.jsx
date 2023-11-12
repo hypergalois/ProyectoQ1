@@ -55,6 +55,7 @@ function RecipeFormPage() {
                     <textarea rows="3" placeholder="Description"
                         {...register("description")}></textarea>
 
+                    {/* OJO ESTO NECESITA TENER UN DEFAULT DA ERROR AL UPDATE */}
                     <label htmlFor="date">Date</label>
                     <input type="date" {...register("date")}/>
 

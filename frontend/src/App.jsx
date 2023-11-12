@@ -26,7 +26,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route element={<ProtectedRoute />}>
                 <Route path="/recipes" element={<RecipesPage />} />
-                <Route path="/recipes/new" element={<RecipeFormPage />} />
+                <Route path="/add-recipes" element={<RecipeFormPage />} />
                 <Route path="/recipes/:id" element={<RecipeFormPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
               </Route>
