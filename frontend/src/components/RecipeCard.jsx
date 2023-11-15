@@ -1,4 +1,5 @@
 import { useRecipes } from "../context/RecipesContext";
+import RecipeDate from "./RecipeDate";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -14,7 +15,7 @@ function RecipeCard({ recipe }) {
                 <div className="flex gap-x-2 items-center">
                     <button onClick={() => {
                         deleteRecipe(recipe._id);
-                    }} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
+                    }} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md" style={{marginLeft:'17px'}}>
                         Eliminar
                     </button>
                     <Link to={`/recipes/${recipe._id}`} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
@@ -23,7 +24,7 @@ function RecipeCard({ recipe }) {
                 </div>
             </header>
             <p className="text-slate-300">{recipe.description}</p>
-            <p>{dayjs(recipe.date).utc().format()}</p>
+            <p><RecipeDate recipe={recipe} /></p>
         </div>
     )
 }
