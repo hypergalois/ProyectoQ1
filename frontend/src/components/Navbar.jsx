@@ -21,27 +21,27 @@ function Navbar() {
                             Welcome {user.username}
                         </li>
                         <li>
-                            <NavbarLink to="/add-recipes">Add Recipe</NavbarLink>
+                            <NavbarLink to="/add-recipes">Añadir receta</NavbarLink>
                         </li>
                         <li>
-                            <NavbarLink to="/recipes">Recipes</NavbarLink>
+                            <NavbarLink to="/recipes">Recetas</NavbarLink>
                         </li>
                         <li>
-                            <NavbarLink to="/profile">Profile</NavbarLink>
+                            <NavbarLink to="/profile">Perfil</NavbarLink>
                         </li>
                         <li>
                             <NavbarLink to="/" onClick={() => {
                                 logout();
-                            }}>Logout</NavbarLink>
+                            }}>Cerrar sesión</NavbarLink>
                         </li>
                     </>
                     ) : (
                         <>
                             <li>
-                                <NavbarLink to="/login" className="bg-indigo-500 px-4 py-1 rounded-sm">Login</NavbarLink>
+                                <NavbarLink to="/login" className="bg-indigo-500 px-4 py-1 rounded-sm">Iniciar sesión</NavbarLink>
                             </li>
                             <li>
-                                <NavbarLink to="/register" className="bg-indigo-500 px-4 py-1 rounded-sm">Register</NavbarLink>
+                                <NavbarLink to="/register" className="bg-indigo-500 px-4 py-1 rounded-sm">Registrarse</NavbarLink>
                             </li>
                         </>
                     )}
