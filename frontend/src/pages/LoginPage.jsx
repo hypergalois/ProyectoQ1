@@ -33,7 +33,7 @@ function LoginPage() {
                         )
                     })
                 }
-                <h1 className="text-2xl font-bold my-2">Login</h1>
+                <h1 className="text-2xl font-bold my-2">Iniciar sesión</h1>
                 <form onSubmit={onSubmit}>
                     <input type="email" {
                         ...register("email", {
@@ -45,7 +45,7 @@ function LoginPage() {
                         placeholder='email' />
                     {
                         errors.email && (
-                            <p className="text-red-500 text-sm">Email is required</p>
+                            <p className="text-red-500 text-sm">Hace falta un correo electrónico</p>
                         )
                     }
 
@@ -60,7 +60,7 @@ function LoginPage() {
                         placeholder='Password'/>
                     {
                         errors.password && (
-                            <p className="text-red-500 text-sm">Password is required</p>
+                            <p className="text-red-500 text-sm">Hace falta una contraseña</p>
                         )
                     }
 
@@ -72,7 +72,7 @@ function LoginPage() {
                 </form>
 
                 <p className="flex gap-x-2 justify-between">
-                    Don't have an account? <Link to="/register" className="text-sky-500">Register</Link>
+                    ¿No tienes una cuenta? <Link to="/register" className="text-sky-500">Regístrate</Link>
                 </p>
 
             </div>

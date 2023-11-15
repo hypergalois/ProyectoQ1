@@ -12,8 +12,8 @@ function RecipesPage() {
 
     if (recipes.length === 0) return (
         <div>
-            <h1>Recipes</h1>
-            <p>No recipes found</p>
+            <h1>Recetas</h1>
+            <p>No se ha podido encontrar ninguna receta.</p>
         </div>
     )
 

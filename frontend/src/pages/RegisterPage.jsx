@@ -31,7 +31,7 @@ function RegisterPage() {
                         )
                     })
                 }
-                <h1 className="text-2xl font-bold my-2">Register</h1>
+                <h1 className="text-2xl font-bold my-2">Registarse</h1>
                 <form onSubmit={onSubmit}>
                     <input type="text" {
                         ...register("username", {
@@ -44,7 +44,7 @@ function RegisterPage() {
                         placeholder="Username" />
                     {
                         errors.username && (
-                            <p className="text-red-500 text-sm">Username is required</p>
+                            <p className="text-red-500 text-sm">Hace falta un nombre de usuario</p>
                         )
                     }
 
@@ -58,7 +58,7 @@ function RegisterPage() {
                         placeholder='Email' />
                     {
                         errors.email && (
-                            <p className="text-red-500 text-sm">Email is required</p>
+                            <p className="text-red-500 text-sm">Hace falta un correo electrónico</p>
                         )
                     }
 
@@ -73,19 +73,19 @@ function RegisterPage() {
                         placeholder='Password' />
                     {
                         errors.password && (
-                            <p className="text-red-500 text-sm">Password is required</p>
+                            <p className="text-red-500 text-sm">Hace falta una contraseña</p>
                         )
                     }
 
                     <button type="submit"
                         className='bg-sky-500 text-white px-4 py-2 rounded-md my-2'>
-                        Register
+                        Registarse
                     </button>
 
                 </form>
 
                 <p className='flex gap-x-2 justify-between'>
-                    Already have an account? <Link to="/login" className='text-sky-500'>Login</Link>
+                    ¿Ya tienes una cuenta? <Link to="/login" className='text-sky-500'>Inicia sesión</Link>
                 </p>
 
             </div>

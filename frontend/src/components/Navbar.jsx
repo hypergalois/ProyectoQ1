@@ -18,7 +18,7 @@ function Navbar() {
                 {isAuthenticated ? (
                     <>
                         <li>
-                            Welcome {user.username}
+                            Hola, {user.username}.
                         </li>
                         <li>
                             <NavbarLink to="/add-recipes">Añadir receta</NavbarLink>
