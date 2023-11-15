@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import NavbarLink from './NavbarLink';
 
 function Navbar() {
 
@@ -7,11 +8,11 @@ function Navbar() {
 
     return (
         <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
-            <Link to={
+            <NavbarLink to={
                 isAuthenticated ? "/recipes" : "/"
             }>
                 <h1 className="text-2xl font-bold">TapaTertulia</h1>
-            </Link>
+            </NavbarLink>
 
             <ul className="flex gap-x-2">
                 {isAuthenticated ? (
@@ -20,27 +21,27 @@ function Navbar() {
                             Welcome {user.username}
                         </li>
                         <li>
-                            <Link to="/add-recipes">Add Recipe</Link>
+                            <NavbarLink to="/add-recipes">Add Recipe</NavbarLink>
                         </li>
                         <li>
-                            <Link to="/recipes">Recipes</Link>
+                            <NavbarLink to="/recipes">Recipes</NavbarLink>
                         </li>
                         <li>
-                            <Link to="/profile">Profile</Link>
+                            <NavbarLink to="/profile">Profile</NavbarLink>
                         </li>
                         <li>
-                            <Link to="/" onClick={() => {
+                            <NavbarLink to="/" onClick={() => {
                                 logout();
-                            }}>Logout</Link>
+                            }}>Logout</NavbarLink>
                         </li>
                     </>
                     ) : (
                         <>
                             <li>
-                                <Link to="/login" className="bg-indigo-500 px-4 py-1 rounded-sm">Login</Link>
+                                <NavbarLink to="/login" className="bg-indigo-500 px-4 py-1 rounded-sm">Login</NavbarLink>
                             </li>
                             <li>
-                                <Link to="/register" className="bg-indigo-500 px-4 py-1 rounded-sm">Register</Link>
+                                <NavbarLink to="/register" className="bg-indigo-500 px-4 py-1 rounded-sm">Register</NavbarLink>
                             </li>
                         </>
                     )}
