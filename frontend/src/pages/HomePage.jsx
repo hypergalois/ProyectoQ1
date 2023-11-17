@@ -3,26 +3,24 @@ import { useEffect, useState } from 'react';
 const HomePage = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
-  const nextSlide = () => {
-    setSlideIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const prevSlide = () => {
-    setSlideIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
-  };
+  const navigateSlide = (direction) => {
+    if (direction === "next") {
+      setSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    } else {
+      setSlideIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+    }
+  }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 7000); // Change slide every 3 seconds (adjust as needed)
-
+    const interval = setInterval(() => navigateSlide("next"), 7000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slideIndex])
+
 
   const slides = [
-    'pepinillos.jpg',
-    'tomate.jpg',
-    'pesto.jpg',
+    '/carrousel-images/pepinillos.jpg',
+    '/carrousel-images/tomate.jpg',
+    '/carrousel-images/pesto.jpg',
   ];
 
   const slideTitles = [
@@ -38,25 +36,41 @@ const HomePage = () => {
   ];
 
   return (
-    <div className='text-center' style={{overflow:'hidden'}}>
-      <div style={{marginLeft:'auto', marginRight:'auto', width:'40%', backgroundColor:'#444', padding:'1%', border:'5px solid #CCC', borderRadius:'20px'}}>
-        <img src={slides[slideIndex]} alt='slide' style={{display:'block', marginLeft:'auto', marginRight:'auto', width:'700px', height:'400px', borderRadius:'10px'}}/>
-        <button onClick={prevSlide}><img src='leftArrow.png' style={{width:'40px', margin:'5px 10px 5px 5px'}}/></button>
-        <button onClick={nextSlide}><img src='rightArrow.png' style={{width:'40px', margin:'5px 5px 5px 10px'}}/></button>
-        <p style={{fontSize:'40pt', textShadow:'#888 2px 2px 5px'}}>{slideTitles[slideIndex]}</p>
-        <div style={{fontSize:'15pt', textAlign:'left'}}>
-          {slideTexts[slideIndex].split('\n').map((item, i) => {
-            return (
-              <div key={i}>
-                {item}
-                <br/>
-              </div>
-            );
-          })}
+    <div className='flex flex-col items-center'>
+
+      <div className='flex flex-col items-center '>
+
+        <div className='text-center mb-8'>
+          <h1 className='text-9xl text-gray-800 font-bold my-6'>TapaTertulia</h1>
+          <p className='text-3xl text-gray-600 mt-2'>Tu mejor lugar para hacer amigos con la cocina</p>
         </div>
+      </div>
+
+
+      <div className='relative w-4/5 md:w-1/2 lg:w-2/5 bg-gray-800 p-4 rounded-xl my-4'>
+
+        <img src={slides[slideIndex]} alt='slide' className='block mx-auto w-full h-96 object-cover rounded-lg' />
+
+        <h2 className='text-4xl text-white font-bold mt-4'>{slideTitles[slideIndex]}</h2>
+
+        <div className='text-white text-left text-lg mt-2'>
+          {slideTexts[slideIndex].split('\n').map((item, index) => (
+            <p key={index} className='mb-1'>
+              {item}
+            </p>
+          ))}
+        </div>
+
+        <button onClick={() => navigateSlide('prev')} className='absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full'>
+          &lt;
+        </button>
+        <button onClick={() => navigateSlide('next')} className='absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full'>
+          &gt;
+        </button>
       </div>
     </div>
   );
+
 };
 
 export default HomePage;

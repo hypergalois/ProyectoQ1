@@ -13,12 +13,27 @@ export const getRecipes = async (req, res) => {
 }
 
 export const createRecipe = async (req, res) => {
-    const { title, description, date } = req.body
+    const { title, description, ingredients, steps, preparationTime, cookingTime, servings, difficulty } = req.body
+    // const pictures = req.files.map(file => file.path)
+    const pictures = req.files ? req.files.map(file => file.path) : []
+    
+    console.log(req.files)
+    console.log(pictures)
+    console.log(req.body)
+
     const newRecipe = new Recipe({
         title,
         description,
-        date,
-        user: req.user.id
+        user: req.user.id,
+        ingredients: JSON.parse(ingredients),
+        steps: JSON.parse(steps),
+        // ingredients,
+        // steps,
+        preparationTime,
+        cookingTime,
+        servings,
+        difficulty,
+        pictures
     })
 
     try {

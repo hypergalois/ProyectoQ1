@@ -11,7 +11,7 @@ function RegisterPage() {
 
     useEffect(() => {
         if (isAuthenticated) {
-            navigate("/recipes")
+            navigate("/explore")
         }
     }, [isAuthenticated])
 
@@ -20,8 +20,8 @@ function RegisterPage() {
     })
 
     return (
-        <div className='flex items-center justify-center h-[calc(100vh-100px)]'>
-            <div className="bg-zinc-800 max-w-md p-10 rounded-md">
+        <div className='flex items-center justify-center my-32'>
+            <div className="bg-zinc-700 max-w-md w-full p-10 rounded-md">
                 {
                     registerErrors.map((error, i) => {
                         return (
@@ -31,8 +31,8 @@ function RegisterPage() {
                         )
                     })
                 }
-                <h1 className="text-2xl font-bold my-2">Registarse</h1>
-                <form onSubmit={onSubmit}>
+                <h1 className="text-white text-3xl font-extrabold my-2 text-center mb-6">Registrarse</h1>
+                <form onSubmit={onSubmit} className='mt-4 space-y-4'>
                     <input type="text" {
                         ...register("username", {
                             required: true,
@@ -40,7 +40,7 @@ function RegisterPage() {
                             maxLength: 20
                         })
                     }
-                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                        className="bg-zinc-500 appearance-none rounded-none relative block w-full px-4 py-2 border border-gray-300 placeholder-gray-200 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2"
                         placeholder="Username" />
                     {
                         errors.username && (
@@ -54,7 +54,7 @@ function RegisterPage() {
                             pattern: /^\S+@\S+$/i,
                         })
                     }
-                        className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                        className='bg-zinc-500 appearance-none rounded-none relative block w-full px-4 py-2 border border-gray-300 placeholder-gray-200 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2'
                         placeholder='Email' />
                     {
                         errors.email && (
@@ -69,8 +69,8 @@ function RegisterPage() {
                             maxLength: 20
                         })
                     }
-                        className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-                        placeholder='Password' />
+                        className='bg-zinc-500 appearance-none rounded-none relative block w-full px-4 py-2 border border-gray-300 placeholder-gray-200 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2'
+                        placeholder='Contraseña' />
                     {
                         errors.password && (
                             <p className="text-red-500 text-sm">Hace falta una contraseña</p>
@@ -78,14 +78,14 @@ function RegisterPage() {
                     }
 
                     <button type="submit"
-                        className='bg-sky-500 text-white px-4 py-2 rounded-md my-2'>
-                        Registarse
+                        className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
+                        Registrarse
                     </button>
 
                 </form>
 
-                <p className='flex gap-x-2 justify-between'>
-                    ¿Ya tienes una cuenta? <Link to="/login" className='text-sky-500'>Inicia sesión</Link>
+                <p className='text-white flex gap-x-2 justify-between mt-6'>
+                    ¿Ya tienes una cuenta? <Link to="/login" className='text-indigo-400 hover:text-indigo-300'>Inicia sesión</Link>
                 </p>
 
             </div>

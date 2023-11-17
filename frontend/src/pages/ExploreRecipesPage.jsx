@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import { useRecipes } from "../context/RecipesContext";
 import RecipeCard from '../components/RecipeCard';
 
-function RecipesPage() {
+//TODO hay que encontrar las de todos los usuarios
+
+function ExploreRecipesPage() {
     
     const { getRecipes, recipes } = useRecipes();
 
@@ -18,7 +20,7 @@ function RecipesPage() {
     )
 
     return (
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-2'>
+        <div className='grid sm:grid-cols-2 md:grid-cols-2 gap-2'>
             {
                 recipes.map((recipe) => (
                     <RecipeCard recipe={recipe} key={recipe._id} />
@@ -28,4 +30,4 @@ function RecipesPage() {
     )
 }
 
-export default RecipesPage
+export default ExploreRecipesPage

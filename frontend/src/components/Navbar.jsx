@@ -1,30 +1,33 @@
-import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import NavbarLink from './NavbarLink';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
-    const { isAuthenticated, user, logout } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
 
     return (
-        <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
-            <NavbarLink to={
-                isAuthenticated ? "/recipes" : "/"
-            }>
-                <h1 className="text-2xl font-bold">TapaTertulia</h1>
-            </NavbarLink>
+        <nav className="bg-zinc-700 shadow-lg my-3 flex items-center justify-between py-5 px-10 rounded-lg mx-4">
 
-            <ul className="flex gap-x-2">
+            <div className='flex items-center'>
+                <img src="logo.png" alt="Logo" className='mr-6 h-20' />
+                <Link to={
+                    isAuthenticated ? "/explore" : "/"
+                }>
+                    <h1 className="text-3xl font-bold text-white">TapaTertulia</h1>
+                </Link>
+            </div>
+
+
+
+            <ul className="flex gap-x-4">
                 {isAuthenticated ? (
                     <>
                         <li>
-                            Hola, {user.username}.
+                            <NavbarLink to="/recipes/add" className="font-bold">Añadir receta</NavbarLink>
                         </li>
                         <li>
-                            <NavbarLink to="/add-recipes">Añadir receta</NavbarLink>
-                        </li>
-                        <li>
-                            <NavbarLink to="/recipes">Recetas</NavbarLink>
+                            <NavbarLink to="/explore" className="font-bold">Recetas</NavbarLink>
                         </li>
                         <li>
                             <NavbarLink to="/profile">Perfil</NavbarLink>
@@ -32,19 +35,19 @@ function Navbar() {
                         <li>
                             <NavbarLink to="/" onClick={() => {
                                 logout();
-                            }}>Cerrar sesión</NavbarLink>
+                            }} className="text-white bg-red-500 px-4 py-1 rounded-sm hover:bg-red-700 transition duration-300">Cerrar sesión</NavbarLink>
                         </li>
                     </>
-                    ) : (
-                        <>
-                            <li>
-                                <NavbarLink to="/login" className="bg-indigo-500 px-4 py-1 rounded-sm">Iniciar sesión</NavbarLink>
-                            </li>
-                            <li>
-                                <NavbarLink to="/register" className="bg-indigo-500 px-4 py-1 rounded-sm">Registrarse</NavbarLink>
-                            </li>
-                        </>
-                    )}
+                ) : (
+                    <>
+                        <li>
+                            <NavbarLink to="/login" className="text-white bg-indigo-500 px-4 py-1 rounded-sm hover:bg-indigo-700 transition duration-300">Iniciar sesión</NavbarLink>
+                        </li>
+                        <li>
+                            <NavbarLink to="/register" className="text-white bg-indigo-500 px-4 py-1 rounded-sm hover:bg-indigo-700 transition duration-300">Registrarse</NavbarLink>
+                        </li>
+                    </>
+                )}
             </ul>
         </nav>
     )
