@@ -10,7 +10,8 @@ function Navbar() {
         <nav className="bg-zinc-700 shadow-lg my-3 flex items-center justify-between py-5 px-10 rounded-lg mx-4">
 
             <div className='flex items-center'>
-                <img src="logo.png" alt="Logo" className='mr-6 h-20' />
+                {/* Poner en absoluta o remota */}
+                <img src="https://i.ibb.co/9pfWcQG/logo.png" alt="Logo" className='mr-6 h-20' />
                 <Link to={
                     isAuthenticated ? "/explore" : "/"
                 }>

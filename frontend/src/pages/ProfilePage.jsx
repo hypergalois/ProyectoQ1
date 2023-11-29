@@ -9,6 +9,8 @@ function ProfilePage() {
 
   useEffect(() => {
     getRecipes()
+    console.log(recipes)
+    // console.log(recipes[0].pictures)
   }, [])
 
   if (recipes.length === 0) return (

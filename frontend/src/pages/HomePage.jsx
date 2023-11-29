@@ -38,7 +38,7 @@ const HomePage = () => {
   return (
     <div className='flex flex-col items-center'>
 
-      <div className='flex flex-col items-center '>
+      <div className='flex flex-col items-center m-8'>
 
         <div className='text-center mb-8'>
           <h1 className='text-9xl text-gray-800 font-bold my-6'>TapaTertulia</h1>
@@ -53,7 +53,7 @@ const HomePage = () => {
 
         <h2 className='text-4xl text-white font-bold mt-4'>{slideTitles[slideIndex]}</h2>
 
-        <div className='text-white text-left text-lg mt-2'>
+        <div className='text-white text-left text-lg mt-4'>
           {slideTexts[slideIndex].split('\n').map((item, index) => (
             <p key={index} className='mb-1'>
               {item}

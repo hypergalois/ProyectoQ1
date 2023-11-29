@@ -27,8 +27,8 @@ function LoginPage() {
                 {
                     loginErrors.map((error, i) => {
                         return (
-                            <div key={i} className="bg-red-500 text-white text-sm p-3 rounded-md my-2">
-                                <p>{error}</p>
+                            <div key={i} className="bg-red-500 text-white text-sm p-3 rounded-md my-2 mb-4">
+                                <p>{error.message}</p>
                             </div>
                         )
                     })
@@ -40,7 +40,7 @@ function LoginPage() {
                             required: true,
                             pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                         })
-                    } 
+                    }
                         className="bg-zinc-500 appearance-none rounded-none relative block w-full px-4 py-2 border border-gray-300 placeholder-gray-200 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2"
                         placeholder='Email' />
                     {
@@ -56,7 +56,6 @@ function LoginPage() {
                             maxLength: 20
                         })
                     } 
-                        // className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
                         className="bg-zinc-500 appearance-none rounded-none relative block w-full px-4 py-2 border border-gray-300 placeholder-gray-200 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2"
                         placeholder='Contraseña'/>
                     {

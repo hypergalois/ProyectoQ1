@@ -5,11 +5,13 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 
+// Falta la logica de comprobar si es propia o ajena y cambiar los botones
+// TODO DIFICULTAD DEVUELVE UNDEFINED
 function RecipeCard({ recipe }) {
     const { deleteRecipe } = useRecipes();
 
     return (
-        <div className="bg-zinc-600 max-w-md w-full p-10 rounded-md">
+        <div className="bg-zinc-700 max-w-md w-full p-10 rounded-md">
             <header className="flex justify-between">
                 <h1 className="text-2xl font-bold text-white">{recipe.title}</h1>
                 <div className="flex gap-x-2 items-center">
@@ -24,9 +26,13 @@ function RecipeCard({ recipe }) {
                 </div>
             </header>
             <p className="text-slate-300">{recipe.description}</p>
-            {/* <p><RecipeDate recipe={recipe} /></p> */}
+            <img src={`http://localhost:4000/${recipe.pictures[0]}`} alt="Fotos receta"/>
         </div>
     )
+
+    // return (
+
+    // )
 }
 
 export default RecipeCard;
