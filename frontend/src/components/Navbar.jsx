@@ -35,6 +35,7 @@ function Navbar() {
                         </li>
                         <li>
                             <NavbarLink to="/" onClick={() => {
+                                console.log("Clicked logout button")
                                 logout();
                             }} className="text-white bg-red-500 px-4 py-1 rounded-sm hover:bg-red-700 transition duration-300">Cerrar sesión</NavbarLink>
                         </li>
