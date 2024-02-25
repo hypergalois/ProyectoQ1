@@ -10,5 +10,5 @@ Nuestro objetivo es proporcionar un espacio para los entusiastas de la cocina, d
 ![Home](https://i.ibb.co/KVQ2xB9/Captura-de-pantalla-2024-02-25-050633.png)
 ![Explore](https://i.ibb.co/YXr1zLk/Captura-de-pantalla-2024-02-25-050707.png)
 ![Upload](https://i.ibb.co/1f2Wyk2/Captura-de-pantalla-2024-02-25-050721.png)
-![Detail1](https://i.ibb.co/WnMK6DV/Captura-de-pantalla-2024-02-25-050734.png)
+![Detail1](https://i.ibb.co/H7bgVNh/Captura-de-pantalla-2024-02-25-050734.png)
 ![Detail2](https://i.ibb.co/ypTh0NK/Captura-de-pantalla-2024-02-25-050749.png)
