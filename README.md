@@ -1,8 +1,8 @@
 # ProyectoQ1 - TapaTertulia
 
-Proyecto Q1 de Proyectos III
+Project Q1 of Proyectos III
 
-Nuestro objetivo es proporcionar un espacio para los entusiastas de la cocina, donde puedan compartir, aprender y colaborar en torno al arte de la cocina.
+Our goal is to provide a space for cooking enthusiasts where they can share, learn, and collaborate around the art of cooking.
 
 ![Landing](images/1.png)
 ![Login](images/2.png)
